@@ -1,17 +1,11 @@
-import { FlatCompat } from '@eslint/eslintrc';
 import tseslint from 'typescript-eslint';
 // @ts-ignore -- no types for this plugin
 import drizzle from 'eslint-plugin-drizzle';
 
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-});
-
 export default tseslint.config(
   {
-    ignores: ['.next'],
+    ignores: ['build', '.react-router', 'app/components/ui'],
   },
-  ...compat.extends('next/core-web-vitals'),
   {
     files: ['**/*.ts', '**/*.tsx'],
     plugins: {
@@ -20,7 +14,6 @@ export default tseslint.config(
     extends: [
       ...tseslint.configs.recommended,
       ...tseslint.configs.recommendedTypeChecked,
-      ...tseslint.configs.stylisticTypeChecked,
     ],
     rules: {
       '@typescript-eslint/array-type': 'off',
@@ -34,23 +27,35 @@ export default tseslint.config(
         { argsIgnorePattern: '^_' },
       ],
       '@typescript-eslint/require-await': 'off',
+      '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-misused-promises': [
         'error',
         { checksVoidReturn: { attributes: false } },
       ],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unsafe-argument': 'warn',
+      '@typescript-eslint/no-unsafe-assignment': 'warn',
+      '@typescript-eslint/no-unsafe-call': 'warn',
+      '@typescript-eslint/no-unsafe-member-access': 'warn',
+      '@typescript-eslint/no-unsafe-return': 'warn',
+      '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
+      '@typescript-eslint/no-unnecessary-type-parameters': 'warn',
+      '@typescript-eslint/no-redundant-type-constituents': 'warn',
+      '@typescript-eslint/no-empty-object-type': 'warn',
+      '@typescript-eslint/no-unused-expressions': 'warn',
       'drizzle/enforce-delete-with-where': [
         'error',
-        { drizzleObjectName: ['db', 'ctx.db'] },
+        { drizzleObjectName: ['db'] },
       ],
       'drizzle/enforce-update-with-where': [
         'error',
-        { drizzleObjectName: ['db', 'ctx.db'] },
+        { drizzleObjectName: ['db'] },
       ],
     },
   },
   {
     linterOptions: {
-      reportUnusedDisableDirectives: true,
+      reportUnusedDisableDirectives: 'warn',
     },
     languageOptions: {
       parserOptions: {

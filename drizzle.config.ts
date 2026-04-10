@@ -1,12 +1,10 @@
-import { type Config } from 'drizzle-kit';
+import { defineConfig } from 'drizzle-kit';
 
-import { env } from '~/env';
-
-export default {
-  schema: './src/server/db/schema.ts',
+export default defineConfig({
+  schema: './app/db/schema.ts',
+  out: './drizzle',
   dialect: 'sqlite',
   dbCredentials: {
-    url: env.DATABASE_URL,
+    url: 'sqlite.db',
   },
-  tablesFilter: ['nextjs-trpc-shadcn-better-sqlite-better-auth-boilerplate_*'],
-} satisfies Config;
+});
