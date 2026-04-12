@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "createdAt": "2026-04-10T15:39:00.465Z",
+  "updatedAt": "2026-04-10T15:39:00.465Z",
+  "platform": "local",
+  "app": {
+    "type": "webapp"
+  },
+  "preferences": {
+    "techPreference": "medium",
+    "questionLevel": "medium",
+    "designDocs": true
+  },
+  "deployment": {
+    "provider": "none",
+    "status": "not_deployed",
+    "url": null,
+    "lastDeployedAt": null
+  },
+  "resources": []
+}

@@ -28,9 +28,9 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env overrides
-.env*.local
-.env.development
-.env.production
+# .env*.local
+# .env.development
+# .env.production
 
 # typescript
 *.tsbuildinfo
