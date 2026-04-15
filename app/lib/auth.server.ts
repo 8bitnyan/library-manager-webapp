@@ -7,7 +7,7 @@ import { getBetterAuthTrustedOrigins } from '~/lib/trusted-origins.server';
 export const auth = betterAuth({
   trustedOrigins: getBetterAuthTrustedOrigins(),
   database: drizzleAdapter(db, {
-    provider: 'sqlite',
+    provider: 'pg',
   }),
   emailAndPassword: {
     enabled: true,

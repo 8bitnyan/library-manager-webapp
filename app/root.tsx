@@ -9,6 +9,7 @@ import {
 import type { MiddlewareFunction } from 'react-router';
 
 import { applyOpenCorsToHeaders } from '~/lib/open-cors';
+import { Toaster } from '~/components/ui/sonner';
 
 import './styles/globals.css';
 
@@ -33,7 +34,7 @@ export const middleware = [openCorsMiddleware];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,6 +43,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="bg-background text-foreground antialiased">
         {children}
+        <Toaster richColors position="top-right" />
         <ScrollRestoration />
         <Scripts />
       </body>

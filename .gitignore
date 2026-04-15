@@ -34,3 +34,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+
+storage/models/*
+!storage/models/.gitkeep
